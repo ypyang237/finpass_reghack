@@ -8,7 +8,7 @@ import {
 import Home from './components/home.js';
 import Passport from './components/passport.js';
 import Transactions from './components/transactions.js';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+// import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 
 
