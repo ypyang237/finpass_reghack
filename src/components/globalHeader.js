@@ -7,7 +7,7 @@ const GlobalHeader = () => (
     <header>
       <Navbar fluid fixedTop>
         <Navbar.Brand>
-          FINPASS
+          <img src="/assets/Logo.png"></img>
         </Navbar.Brand>
         <Navbar.Collapse>
           <Nav pullRight>

@@ -19,27 +19,27 @@ class Passport extends Component {
     const loanData = [
       {
         lender: "/assets/ANZ.png",
-        status: 'approved',
+        status: 'Approved',
         amount: '$500,000'
       },
       {
         lender: "/assets/NAB.png",
-        status: 'pending',
+        status: 'Pending',
         amount: '$700,000'
       },
       {
         lender: "/assets/Westpac.png",
-        status: 'pending',
+        status: 'Pending',
         amount: '$300,000'
       },
       {
         lender: "/assets/CBA.png",
-        status: 'approved',
+        status: 'Approved',
         amount: '$400,000'
       },
       {
         lender: "/assets/ING.png",
-        status: 'pending',
+        status: 'Pending',
         amount: '$600,000'
       }
     ];
@@ -53,9 +53,9 @@ class Passport extends Component {
               <Col md={6} mdPush={6}>
                 <h3>My Verified Income</h3>
                 <Row>
-                  <Col Col sm={2} md={3}><p>This Financial Year (16/17)</p> </Col>
-                  <Col Col sm={2} md={3}><p>Year to Date</p> </Col>
-                  <Col Col sm={2} md={3}><p>Last Financial Year (15/16)</p> </Col>
+                  <Col Col sm={2} md={3}><p>This Financial Year</p> </Col>
+                  <Col Col sm={2} md={4}><p>Year to Date</p> </Col>
+                  <Col Col sm={2} md={3}><p>Last Financial Year</p> </Col>
                   <Col Col sm={2} md={3}><p>This Month</p> </Col>
                 </Row>
                 <Row>
@@ -64,11 +64,15 @@ class Passport extends Component {
                   <Col Col sm={2} md={3}><p>$55,000</p> </Col>
                   <Col Col sm={2} md={3}><p>$4,000</p> </Col>
                 </Row>
-
+                <Row>
+                  <Col sm={6} md={6}>
+                    <img src="/assets/incomegraph.png"></img>
+                  </Col>
+                </Row>
               </Col>
               <Col md={6} mdPull={6}>
                 <h3>My Loan Applications</h3>
-                <Row>
+                <Row style={{fontWeight: "bold"}}>
                   <Col Col sm={2} md={4}><p>Lenders</p> </Col>
                   <Col Col sm={2} md={4}><p>Status</p> </Col>
                   <Col Col sm={2} md={4}><p>Approved Amount</p> </Col>

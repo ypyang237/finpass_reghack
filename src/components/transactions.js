@@ -42,7 +42,7 @@ class Transactions extends Component {
       <div>
         <GlobalHeader />
         <Grid>
-          <Row className="show-grid">
+          <Row className="show-grid" style={{fontWeight: "bold"}}>
             <Col sm={6} md={3} >
               <p>SOURCE</p>
             </Col>
