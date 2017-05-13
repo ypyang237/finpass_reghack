@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
 import GlobalHeader from './globalHeader.js';
 import { Grid, Row, Col } from 'react-bootstrap';
+import transactions from './source/transactions'
+
+var transactionslist = transactions;
 
 class Transactions extends Component {
+  confirm(id) {
+    transactionslist = transactionslist.map(function(el){
+      if(el.id === id){
+        el.status = "confirmed";
+      }
+
+      return el;
+    })
+  }
+
   render() {
-    var companies = ["AirTasker", "Uber", "Upwork", "AirBnB", "Deliveroo"]
-    var dates = ["17/05/2017", "16/05/2017", "15/05/2017", "14/05/2017"]
+    var that = this;
 
-    var transactions = [];
-
-    for (var i = 0; i < 20; i++ ){
-      transactions.push({
-        source: companies[Math.floor(Math.random()*companies.length)],
-        amount: Math.floor(Math.random()*100),
-        date: dates[Math.floor(Math.random()*dates.length)]
-      })
-    }
-
-    var table = transactions.map(function(e){
+    var table = transactionslist.map(function(e){
       return (
         <Row className="show-grid">
             <Col sm={6} md={3} >
-              <p>{e.source}</p>
+              <img style={{height: "40px"}} src={e.source}></img>
             </Col>
 
             <Col sm={6} md={3}>
-              <p>{e.amount}</p>
+              <p>${e.amount}</p>
             </Col>
 
 
@@ -34,9 +36,13 @@ class Transactions extends Component {
             </Col>
 
             <Col sm={6} md={3}>
-              <a type="button" className="btn btn-info btn-block" href={'#'}>
-                Confirm
-              </a>
+              {e.status === "pending" ?
+                <a type="button" onClick={that.confirm.bind(that, e.id)} className="btn btn-info btn-block" href={'#'}>
+                  Confirm
+                </a>
+              :
+                <img style={{height: "40px"}} src={"/assets/tick.png"}></img>
+              }
             </Col>
         </Row>
       )
