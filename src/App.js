@@ -8,6 +8,7 @@ import {
 import Home from './components/home.js';
 import Passport from './components/passport.js';
 import Transactions from './components/transactions.js';
+import Verification from './components/verification.js';
 // import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 
@@ -18,6 +19,7 @@ const FinPassApp = () => (
       <Route exact path="/" component={Home}/>
       <Route path="/transactions" component={Transactions}/>
       <Route path="/passport" component={Passport}/>
+      <Route path="/verification" component={Verification}/>
     </div>
   </Router>
 )
