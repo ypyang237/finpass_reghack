@@ -10,7 +10,7 @@ class Transactions extends Component {
         el.status = "confirmed";
       }
       return el;
-    })
+    });
   }
   render() {
     var that = this;
@@ -18,7 +18,7 @@ class Transactions extends Component {
       return (
         <Row className="show-grid">
             <Col sm={6} md={3} >
-              <img style={{height: "40px"}} src={e.source}></img>
+              <p>{e.source}</p>
             </Col>
             <Col sm={6} md={3}>
               <p>${e.amount}</p>
@@ -27,7 +27,7 @@ class Transactions extends Component {
               <p>{e.date}</p>
             </Col>
             <Col sm={6} md={3}>
-              {e.status === "pending" ?
+              {e.status === "confirmed" ?
                 <a type="button" onClick={that.confirm.bind(that, e.id)} className="btn btn-info btn-block" href={'#'}>
                   Confirm
                 </a>
