@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import GlobalHeader from './globalHeader.js'
 
 const Passport = ({}) => (
   <div>
+    <GlobalHeader />
     <h2>My Passport</h2>
 
     <h3>My Loans</h3>
@@ -51,8 +53,8 @@ const Passport = ({}) => (
         <p>May</p>
         <p>$3000</p>
       </div>
+      </div>
     </div>
-  </div>
 )
 
 export default Passport;
