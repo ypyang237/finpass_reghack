@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 .App {
   text-align: center;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif !important;
 }
 
 .App-logo {
