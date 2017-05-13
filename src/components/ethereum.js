@@ -61,9 +61,19 @@ class Ethereum extends Component {
     var meta;
     MetaCoin.deployed().then(function(instance) {
       meta = instance;
-      return meta.storeHash(that.state.airtasker, {from: account});
+      return meta.generateHash(that.state.airtasker, {from: account});
     }).then(function(value) {
-      that.setState({generated: "Generated Hash!"})
+
+      MetaCoin.deployed().then(function(instance) {
+        meta = instance;
+        return meta.storeHash(value, {from: account});
+      }).then(function(value) {
+        that.setState({generated: "Generated Hash!"})
+      }).catch(function(e) {
+        console.log(e);
+      });
+
+      // that.setState({generated: "Generated Hash!"})
     }).catch(function(e) {
       console.log(e);
     });
@@ -76,8 +86,9 @@ class Ethereum extends Component {
     var meta;
     MetaCoin.deployed().then(function(instance) {
       meta = instance;
-      return meta.storeHash(that.state.bank, {from: account});
+      return meta.verifyHash.call(that.state.bank, {from: account});
     }).then(function(value) {
+      console.log('value', value);
       that.setState({verified: "Verified!"})
     }).catch(function(e) {
       console.log(e);
