@@ -3,13 +3,11 @@ import GlobalHeader from './globalHeader.js'
 import { Grid, Row, Col } from 'react-bootstrap';
 
 class Passport extends Component {
-
-
   renderApplications(loanData) {
     return loanData.map((application) => {
       return (
         <Row>
-          <Col Col sm={2} md={4}><p>{application.lender}</p> </Col>
+          <Col Col sm={2} md={4}><img style={{height: "40px"}} src={application.lender}></img> </Col>
           <Col Col sm={2} md={4}><p>{application.status}</p> </Col>
           <Col Col sm={2} md={4}><p>{application.amount}</p> </Col>
         </Row>
@@ -20,27 +18,27 @@ class Passport extends Component {
   render() {
     const loanData = [
       {
-        lender: 'ANZ',
+        lender: "/assets/ANZ.png",
         status: 'approved',
         amount: '$500,000'
       },
       {
-        lender: 'NAB',
+        lender: "/assets/NAB.png",
         status: 'pending',
         amount: '$700,000'
       },
       {
-        lender: 'WESTPAC',
+        lender: "/assets/Westpac.png",
         status: 'pending',
         amount: '$300,000'
       },
       {
-        lender: 'CBA',
+        lender: "/assets/CBA.png",
         status: 'approved',
         amount: '$400,000'
       },
       {
-        lender: 'ING',
+        lender: "/assets/ING.png",
         status: 'pending',
         amount: '$600,000'
       }

@@ -5,7 +5,7 @@ import GlobalHeader from './globalHeader.js'
 const Home = () => (
   <div>
     <GlobalHeader />
-    <h2>Home</h2>
+    <img src="/assets/homepage.png"></img>
   </div>
 )
 
