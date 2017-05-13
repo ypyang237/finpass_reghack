@@ -4,6 +4,7 @@ import GlobalHeader from './globalHeader.js'
 const Passport = ({}) => (
   <div>
     <GlobalHeader />
+    <div className="col-lg-3 col-md-4 col-sm-6">
     <h2>My Passport</h2>
 
     <h3>My Loans</h3>
@@ -55,6 +56,7 @@ const Passport = ({}) => (
       </div>
       </div>
     </div>
+  </div>
 )
 
 export default Passport;
