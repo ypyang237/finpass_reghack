@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import GlobalHeader from './globalHeader.js';
 import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
+// import { Field, reduxForm } from 'redux-form';
+
 class Verification extends Component {
 
-  render() {
 
+  render() {
     function FieldGroup({ id, label, help, ...props }) {
       return (
-        <FormGroup controlId={id}>
+        <FormGroup role="form">
           <ControlLabel>{label}</ControlLabel>
           <FormControl {...props} />
         </FormGroup>
@@ -19,18 +21,18 @@ class Verification extends Component {
       <div>
         <GlobalHeader />
         <div className="contatiner" style={{margin: '0 auto', width: '80%'}}>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <FieldGroup
-              id="formControlTo"
+              id="formControlName"
               type="text"
-              label="To"
-              placeholder="to"
+              label="Name"
+              placeholder="name"
             />
             <FieldGroup
-              id="formControlsFrom"
-              type="text"
-              label="From"
-              placeholder="from"
+              id="formControlsAmount"
+              type="number"
+              label="Dollar Value"
+              placeholder="amount"
             />
             <FieldGroup
               id="formControlsHash"
@@ -42,7 +44,7 @@ class Verification extends Component {
               type="file"
               label="Pdf"
             />
-            <Button type="submit">
+            <Button className="btn btn-primary btn-large centerButton" type="submit">
               Submit
             </Button>
           </form>
