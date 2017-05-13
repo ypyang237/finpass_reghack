@@ -16,61 +16,76 @@ var MetaCoin = contract(metacoin_artifacts);
 var accounts;
 var account;
 
+var web3;
+if (typeof web3 !== 'undefined') {
+  console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
+  // Use Mist/MetaMask's provider
+  web3 = new Web3(web3.currentProvider);
+} else {
+  console.warn("No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
+  // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+}
 
+MetaCoin.setProvider(web3.currentProvider);
 
+web3.eth.getAccounts(function(err, accs) {
+  if (err != null) {
+    alert("There was an error fetching your accounts.");
+    return;
+  }
+
+  if (accs.length == 0) {
+    alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
+    return;
+  }
+
+  accounts = accs;
+  account = accounts[0];
+
+});
 
 class Ethereum extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      airtasker: "hello",
-      bank: "goodbye"
+      airtasker: "Jane4May2017$5000Airtasker",
+      bank: "Jane4May2017$5000Airtasker",
+      generated: "",
+      verified: ""
     }
 
   }
 
 
-    generateHash() {
-      console.log('generate')
-      var self = this;
+  storeHash() {
+    var that = this;
+    console.log('store')
 
-      var meta;
-      MetaCoin.deployed().then(function(instance) {
-        meta = instance;
-        return meta.getBalance.call(account, {from: account});
-      }).then(function(value) {
-        var balance_element = document.getElementById("balance");
-        balance_element.innerHTML = value.valueOf();
-      }).catch(function(e) {
-        console.log(e);
-        self.setStatus("Error getting balance; see log.");
-      });
-    }
-
-    storeHash() {
-      console.log('store')
-      var self = this;
-
-      var amount = parseInt(document.getElementById("amount").value);
-      var receiver = document.getElementById("receiver").value;
-
-      this.setStatus("Initiating transaction... (please wait)");
-
-      var meta;
-      MetaCoin.deployed().then(function(instance) {
-        meta = instance;
-        return meta.sendCoin(receiver, amount, {from: account});
-      }).then(function() {
-        self.setStatus("Transaction complete!");
-        self.refreshBalance();
-      }).catch(function(e) {
-        console.log(e);
-        self.setStatus("Error sending coin; see log.");
-      });
-    }
+    var meta;
+    MetaCoin.deployed().then(function(instance) {
+      meta = instance;
+      return meta.storeHash(that.state.airtasker, {from: account});
+    }).then(function(value) {
+      that.setState({generated: "Generated Hash!"})
+    }).catch(function(e) {
+      console.log(e);
+    });
+  }
 
   verifyHash() {
+    var that = this;
     console.log('verify')
+
+    var meta;
+    MetaCoin.deployed().then(function(instance) {
+      meta = instance;
+      return meta.storeHash(that.state.bank, {from: account});
+    }).then(function(value) {
+      that.setState({verified: "Verified!"})
+    }).catch(function(e) {
+      console.log(e);
+    });
   }
 
   handleChange(field, event) {
@@ -81,11 +96,11 @@ class Ethereum extends Component {
   }
 
   submitAT() {
-    console.log(this.state.airtasker);
+    this.storeHash();
   }
 
   submitBank() {
-    console.log(this.state.bank);
+    this.verifyHash();
   }
 
   render() {
@@ -97,14 +112,14 @@ class Ethereum extends Component {
           <p>Airtasker Inputs Hash</p>
           <input type="text" value={this.state.airtasker} onChange={this.handleChange.bind(this, 'airtasker')}/>
           <button onClick={this.submitAT.bind(this)}>Submit</button>
-          <p>Result:</p>
+          <p>Result: {this.state.generated}</p>
         </div>
 
         <div>
           <p>Bank Verifies Hash</p>
           <input type="text" value={this.state.bank} onChange={this.handleChange.bind(this,"bank")}/>
           <button onClick={this.submitBank.bind(this)}>Submit</button>
-          <p>Result</p>
+          <p>Result: {this.state.verified}</p>
         </div>
       </div>
 
