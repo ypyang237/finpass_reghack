@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import GlobalHeader from './globalHeader.js';
 import { Grid, Row, Col } from 'react-bootstrap';
 class Transactions extends Component {
-
   render() {
     return (
       <div>
@@ -34,7 +33,3 @@ class Transactions extends Component {
 
 export default Transactions;
 
-
-// <a type="button" className="btn btn-info btn-block" href={'#'}>
-//   Confirm
-// </a>

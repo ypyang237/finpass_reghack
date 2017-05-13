@@ -1,62 +1,89 @@
 import React, { Component } from 'react';
 import GlobalHeader from './globalHeader.js'
+import { Grid, Row, Col } from 'react-bootstrap';
 
-const Passport = ({}) => (
-  <div>
-    <GlobalHeader />
-    <div className="col-lg-3 col-md-4 col-sm-6">
-    <h2>My Passport</h2>
+class Passport extends Component {
 
-    <h3>My Loans</h3>
-    <div>
-      <div>ANZ</div>
-      <p>Status: Application Successful</p>
-      <p>Approved for: $500,000</p>
-    </div>
-    <div>
-      <div>CBA</div>
-      <p>Status: Processing</p>
-      <p>Approved for: TBD</p>
-    </div>
-    <div>
-      <div>NAB</div>
-      <p>Status: Processing</p>
-      <p>Approved for: TBD</p>
-    </div>
 
-    <h3>My Verified Income</h3>
-    <div>
+  renderApplications(loanData) {
+    return loanData.map((application) => {
+      return (
+        <Row>
+          <Col Col sm={2} md={4}><p>{application.lender}</p> </Col>
+          <Col Col sm={2} md={4}><p>{application.status}</p> </Col>
+          <Col Col sm={2} md={4}><p>{application.amount}</p> </Col>
+        </Row>
+      )
+    })
+  }
+
+  render() {
+    const loanData = [
+      {
+        lender: 'ANZ',
+        status: 'approved',
+        amount: '$500,000'
+      },
+      {
+        lender: 'NAB',
+        status: 'pending',
+        amount: '$700,000'
+      },
+      {
+        lender: 'WESTPAC',
+        status: 'pending',
+        amount: '$300,000'
+      },
+      {
+        lender: 'CBA',
+        status: 'approved',
+        amount: '$400,000'
+      },
+      {
+        lender: 'ING',
+        status: 'pending',
+        amount: '$600,000'
+      }
+    ];
+
+    return (
       <div>
-        <h4>This Financial Year (16/17)</h4>
-        <p>$60000</p>
-      </div>
+        <GlobalHeader />
+        <div>
+          <Grid fluid={true}>
+            <Row className="show-grid">
+              <Col md={6} mdPush={6}>
+                <h3>My Verified Income</h3>
+                <Row>
+                  <Col Col sm={2} md={3}><p>This Financial Year (16/17)</p> </Col>
+                  <Col Col sm={2} md={3}><p>Year to Date</p> </Col>
+                  <Col Col sm={2} md={3}><p>Last Financial Year (15/16)</p> </Col>
+                  <Col Col sm={2} md={3}><p>This Month</p> </Col>
+                </Row>
+                <Row>
+                  <Col Col sm={2} md={3}><p>$60,000</p> </Col>
+                  <Col Col sm={2} md={3}><p>$50,000</p> </Col>
+                  <Col Col sm={2} md={3}><p>$55,000</p> </Col>
+                  <Col Col sm={2} md={3}><p>$4,000</p> </Col>
+                </Row>
 
-      <div>
-        <h4>Year to Date</h4>
-        <p>$55000</p>
+              </Col>
+              <Col md={6} mdPull={6}>
+                <h3>My Loan Applications</h3>
+                <Row>
+                  <Col Col sm={2} md={4}><p>Lenders</p> </Col>
+                  <Col Col sm={2} md={4}><p>Status</p> </Col>
+                  <Col Col sm={2} md={4}><p>Approved Amount</p> </Col>
+                </Row>
+                  {this.renderApplications(loanData)}
+              </Col>
+            </Row>
+          </Grid>
+        </div>
       </div>
+    )
+  }
+}
 
-      <div>
-        <h4>Last Financial Year (15/16)</h4>
-        <p>$50000</p>
-      </div>
-
-      <div>
-        <h4>Monthly income</h4>
-        <p>January</p>
-        <p>$4000</p>
-        <p>February</p>
-        <p>$5000</p>
-        <p>March</p>
-        <p>$6000</p>
-        <p>April</p>
-        <p>$4000</p>
-        <p>May</p>
-        <p>$3000</p>
-      </div>
-      </div>
-    </div>
-  </div>
-)
 
 export default Passport;
