@@ -1,57 +1,40 @@
 import React, { Component } from 'react';
-import GlobalHeader from './globalHeader.js'
-
+import GlobalHeader from './globalHeader.js';
+import { Grid, Row, Col } from 'react-bootstrap';
 class Transactions extends Component {
 
   render() {
     return (
-     <div>
-      <GlobalHeader />
-      <div className="col-lg-3 col-md-4 col-sm-6">
-        <div className={`container-fluid`}>
+      <div>
+        <GlobalHeader />
+        <Grid>
+          <Row className="show-grid">
+            <Col sm={6} md={3} >
+              <p>SOURCE</p>
+            </Col>
 
-          <div>
-
-            <div className="row">
-              <div className="col-sm-12">
-                <p>SOURCE</p>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-12">
-                <p>AMOUNT</p>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-sm-12">
-                <p>DATE</p>
-              </div>
-            </div>
+            <Col sm={6} md={3}>
+              <p>AMOUNT</p>
+            </Col>
 
 
-            <div className="row">
-              <div className="col-sm-12">
-                <p>CONFIRMATION</p>
-              </div>
-            </div>
+            <Col sm={6} md={3}>
+              <p>DATE</p>
+            </Col>
 
-          </div>
-
-          <div className="row">
-            <div className={`col-sm-6`}>
-              <a type="button" className="btn btn-info btn-block" href={'#'}>
-                Confirm
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
+            <Col sm={6} md={3}>
+              <p>CONFIRMATION</p>
+            </Col>
+          </Row>
+       </Grid>
     </div>
   )}
 }
 
 
 export default Transactions;
+
+
+// <a type="button" className="btn btn-info btn-block" href={'#'}>
+//   Confirm
+// </a>
