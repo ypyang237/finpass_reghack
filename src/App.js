@@ -20,8 +20,7 @@ const FinPassApp = () => (
       <Route exact path="/" component={Home}/>
       <Route path="/transactions" component={Transactions}/>
       <Route path="/passport" component={Passport}/>
-      <Route path="/verification" component={Verification}/>
-      <Route path="/ethereum" component={Ethereum}/>
+      <Route path="/verify" component={Ethereum}/>
     </div>
   </Router>
 )

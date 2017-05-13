@@ -14,8 +14,7 @@ const GlobalHeader = () => (
             <NavItem href="/">Home</NavItem>
             <NavItem href="/transactions">Transactions</NavItem>
             <NavItem href="/passport">Passport</NavItem>
-            <NavItem href="/verification">Verification</NavItem>
-            <NavItem href="/ethereum">Ethereum</NavItem>
+            <NavItem href="/verify">Verify</NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
