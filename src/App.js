@@ -15,14 +15,6 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 const FinPassApp = () => (
   <Router>
     <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/transactions">Transactions</Link></li>
-        <li><Link to="/passport">Passport</Link></li>
-      </ul>
-
-      <hr/>
-
       <Route exact path="/" component={Home}/>
       <Route path="/transactions" component={Transactions}/>
       <Route path="/passport" component={Passport}/>
