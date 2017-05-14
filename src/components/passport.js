@@ -50,13 +50,13 @@ class Passport extends Component {
         <div>
           <Grid fluid={true}>
             <Row className="show-grid">
-              <Col md={6} mdPush={6}>
-                <h3>My Verified Income</h3>
+              <Col md={6} mdPush={6} style={{ padding: '5px'}}>
+                <h3 style={{padding: '10px', color: '#0F3D5C', fontSize: '25px'}}>My Verified Income</h3>
                 <Row>
-                  <Col Col sm={2} md={3}><p>This Financial Year</p> </Col>
-                  <Col Col sm={2} md={4}><p>Year to Date</p> </Col>
-                  <Col Col sm={2} md={3}><p>Last Financial Year</p> </Col>
-                  <Col Col sm={2} md={3}><p>This Month</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>This FY </p> </Col>
+                  <Col Col sm={2} md={4}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>Year to Date</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>Last FY</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>This Month</p> </Col>
                 </Row>
                 <Row>
                   <Col Col sm={2} md={3}><p>$60,000</p> </Col>
@@ -70,12 +70,12 @@ class Passport extends Component {
                   </Col>
                 </Row>
               </Col>
-              <Col md={6} mdPull={6}>
-                <h3>My Loan Applications</h3>
-                <Row style={{fontWeight: "bold"}}>
-                  <Col Col sm={2} md={4}><p>Lenders</p> </Col>
-                  <Col Col sm={2} md={4}><p>Status</p> </Col>
-                  <Col Col sm={2} md={4}><p>Approved Amount</p> </Col>
+              <Col md={6} mdPull={6} style={{ padding: '5px'}}>
+                <h3 style={{padding: '10px', color: '#0F3D5C', fontSize: '25px'}}>My Loan Applications</h3>
+                <Row style={{fontWeight: "bold", padding: '10px'}}>
+                  <Col Col sm={2} md={4}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>Lenders</p> </Col>
+                  <Col Col sm={2} md={4}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>Status</p> </Col>
+                  <Col Col sm={2} md={4}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>Approved Amount</p> </Col>
                 </Row>
                   {this.renderApplications(loanData)}
               </Col>

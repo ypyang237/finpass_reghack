@@ -44,16 +44,16 @@ class Transactions extends Component {
         <Grid>
           <Row className="show-grid" style={{fontWeight: "bold"}}>
             <Col sm={6} md={3} >
-              <p>SOURCE</p>
+              <p style={{padding: '5px', color: 'darkblue', fontSize: '20px'}}>CONTRACTOR</p>
             </Col>
             <Col sm={6} md={3}>
-              <p>AMOUNT</p>
+              <p style={{padding: '5px', color: 'darkblue', fontSize: '20px'}}>AMOUNT</p>
             </Col>
             <Col sm={6} md={3}>
-              <p>DATE</p>
+              <p style={{padding: '5px', color: 'darkblue', fontSize: '20px'}}>DATE</p>
             </Col>
             <Col sm={6} md={3}>
-              <p>CONFIRMATION</p>
+              <p style={{padding: '5px', color: 'darkblue', fontSize: '20px'}}>CONFIRMATION</p>
             </Col>
           </Row>
           {table}
