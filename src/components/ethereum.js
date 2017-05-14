@@ -45,8 +45,8 @@ class Ethereum extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      airtasker: "Jane4May2017$5000Airtasker",
-      bank: "Jane4May2017$5000Airtasker",
+      airtasker: "#142312324134May2017$5000Airtasker",
+      bank: "#142312324134May2017$5000Airtasker",
       generated: "",
       verified: ""
     }
@@ -114,7 +114,7 @@ class Ethereum extends Component {
     function FieldGroup({ id, label, help, ...props }) {
       return (
         <FormGroup role="form">
-          <ControlLabel>{label}</ControlLabel>
+          <ControlLabel style={{padding: '2px', fontSize: '23px'}}>{label}</ControlLabel>
           <FormControl {...props} />
         </FormGroup>
       );
@@ -123,13 +123,13 @@ class Ethereum extends Component {
     return (
       <div>
         <GlobalHeader />
-        <h1>ETH</h1>
+        <h1>TRANSACTION VERIFICATION</h1>
         <div className="contatiner" style={{margin: '0 auto', width: '80%'}}>
           <form onSubmit={this.handleSubmit}>
             <FieldGroup
               id="formControlAir"
               type="text"
-              label="Airtasker Inputs Hash"
+              label="Information from Airtasker"
               placeholder="hash"
               value={this.state.airtasker}
               onChange={this.handleChange.bind(this, 'airtasker')}
@@ -141,12 +141,12 @@ class Ethereum extends Component {
             <FieldGroup
               id="formControlsBank"
               type="text"
-              label="Bank Verifies Hash"
+              label="Lender Verifies Hash"
               placeholder="hash"
               value={this.state.bank}
               onChange={this.handleChange.bind(this,"bank")}
             />
-            <p>Result: {this.state.verified}</p>
+            <p>Result: <span style={{color: 'green', fontSize: '20px'}}>{this.state.verified}</span></p>
             <Button className="btn btn-primary btn-large centerButton" onClick={this.submitBank.bind(this)}>
               Submit
             </Button>

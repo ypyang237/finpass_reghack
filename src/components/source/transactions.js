@@ -7,7 +7,7 @@ var transactions = [];
 for (var i = 0; i < 100; i++ ){
   transactions.push({
     id: i,
-    source: firstnames[Math.floor(Math.random()*firstnames.length)] + " " + lastnames[Math.floor(Math.random()*lastnames.length)],
+    source: "#" + Math.floor(Math.random()*10000000000),
     amount: Math.floor(Math.random()*10000),
     date: dates[Math.floor(Math.random()*dates.length)],
     status: "pending"
