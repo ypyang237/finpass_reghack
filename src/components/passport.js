@@ -7,7 +7,7 @@ class Passport extends Component {
     return loanData.map((application) => {
       return (
         <Row>
-          <Col Col sm={2} md={4}><img style={{height: "40px"}} src={application.lender}></img> </Col>
+          <Col Col sm={2} md={4}><img style={{height: "40px", padding: '5px'}} src={application.lender}></img> </Col>
           <Col Col sm={2} md={4}><p>{application.status}</p> </Col>
           <Col Col sm={2} md={4}><p>{application.amount}</p> </Col>
         </Row>
@@ -52,21 +52,21 @@ class Passport extends Component {
             <Row className="show-grid">
               <Col md={6} mdPush={6} style={{ padding: '5px'}}>
                 <h3 style={{padding: '10px', color: '#0F3D5C', fontSize: '25px'}}>My Verified Income</h3>
-                <Row>
-                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>This FY </p> </Col>
-                  <Col Col sm={2} md={4}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>Year to Date</p> </Col>
-                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>Last FY</p> </Col>
-                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '5px', fontSize: '16px'}}>This Month</p> </Col>
+                <Row  style={{padding: '15px'}}>
+                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '1px', fontSize: '16px'}}>This FY </p> </Col>
+                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '1px', fontSize: '16px'}}>Year to Date</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '1px', fontSize: '16px'}}>Last FY</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{fontWeight: '900', padding: '1px', fontSize: '16px'}}>This Month</p> </Col>
                 </Row>
                 <Row>
-                  <Col Col sm={2} md={3}><p>$60,000</p> </Col>
-                  <Col Col sm={2} md={3}><p>$50,000</p> </Col>
-                  <Col Col sm={2} md={3}><p>$55,000</p> </Col>
-                  <Col Col sm={2} md={3}><p>$4,000</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{ padding: '1px'}}>$60,000</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{ padding: '1px'}}>$50,000</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{ padding: '1px'}}>$55,000</p> </Col>
+                  <Col Col sm={2} md={3}><p style={{ padding: '1px'}}>$4,000</p> </Col>
                 </Row>
                 <Row>
                   <Col sm={6} md={6}>
-                    <img src="/assets/incomegraph.png"></img>
+                    <img  style={{ marginTop: '10px'}} src="/assets/incomegraph.png"></img>
                   </Col>
                 </Row>
               </Col>

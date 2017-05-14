@@ -114,7 +114,7 @@ class Ethereum extends Component {
     function FieldGroup({ id, label, help, ...props }) {
       return (
         <FormGroup role="form">
-          <ControlLabel style={{padding: '2px', fontSize: '23px'}}>{label}</ControlLabel>
+          <ControlLabel style={{padding: '5px', fontSize: '23px'}}>{label}</ControlLabel>
           <FormControl {...props} />
         </FormGroup>
       );
@@ -123,33 +123,37 @@ class Ethereum extends Component {
     return (
       <div>
         <GlobalHeader />
-        <h1>TRANSACTION VERIFICATION</h1>
-        <div className="contatiner" style={{margin: '0 auto', width: '80%'}}>
+        <h1 style={{marginTop: '25px',marginBottom: '25px', textAlign: 'center', color: '#0F3D5C'}}>TRANSACTION VERIFICATION</h1>
+        <div className="contatiner" style={{margin: '0 auto', width: '80%', padding: '10px'}}>
           <form onSubmit={this.handleSubmit}>
-            <FieldGroup
-              id="formControlAir"
-              type="text"
-              label="Information from Airtasker"
-              placeholder="hash"
-              value={this.state.airtasker}
-              onChange={this.handleChange.bind(this, 'airtasker')}
-            />
-            <p>Result: {this.state.generated}</p>
-            <Button className="btn btn-primary btn-large centerButton" onClick={this.submitAT.bind(this)}>
-              Submit
-            </Button>
-            <FieldGroup
-              id="formControlsBank"
-              type="text"
-              label="Lender Verifies Hash"
-              placeholder="hash"
-              value={this.state.bank}
-              onChange={this.handleChange.bind(this,"bank")}
-            />
-            <p>Result: <span style={{color: 'green', fontSize: '20px'}}>{this.state.verified}</span></p>
-            <Button className="btn btn-primary btn-large centerButton" onClick={this.submitBank.bind(this)}>
-              Submit
-            </Button>
+            <div style={{padding: '20px'}}>
+              <FieldGroup
+                id="formControlAir"
+                type="text"
+                label="Information from Airtasker"
+                placeholder="hash"
+                value={this.state.airtasker}
+                onChange={this.handleChange.bind(this, 'airtasker')}
+              />
+              <p style={{fontWeight: '900'}}>Result: <span style={{color: 'red', fontSize: '20px'}}>{this.state.generated}</span></p>
+              <Button className="btn btn-primary btn-large centerButton" style={{padding: '5px'}} onClick={this.submitAT.bind(this)}>
+                Submit
+              </Button>
+            </div>
+            <div style={{padding: '20px'}}>
+              <FieldGroup
+                id="formControlsBank"
+                type="text"
+                label="Lender Verifies Hash"
+                placeholder="hash"
+                value={this.state.bank}
+                onChange={this.handleChange.bind(this,"bank")}
+              />
+              <p>Result: <span style={{color: 'green', fontSize: '20px'}}>{this.state.verified}</span></p>
+              <Button className="btn btn-primary btn-large centerButton" onClick={this.submitBank.bind(this)}>
+                Submit
+              </Button>
+            </div>
           </form>
 
         </div>
